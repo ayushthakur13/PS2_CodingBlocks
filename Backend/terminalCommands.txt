@@ -1,0 +1,24 @@
+Terminal Commands:
+ls = get the list of all files and folder in current folder
+dir = same as ls for cmd
+cd filename = go to the file or folder
+cd ../ = come back to previous or parent folder
+cd .. = same as cd ../
+mkdir filename = create folder
+pwd = gives the path of current file or folder
+cd (without any arguments) = same as pwd for cmd
+rm -rf filename = delete file
+rm -r -f filename = delete for powershell
+clear = clear the terminal
+cls = same as clear for cmd
+
+node -v = get the version of node.js
+npm -v = get the version of npm
+
+npm init = Initializes a new Node.js project, creating a package.json
+npm init -y = Same as npm init, but skips all the prompts and uses default values
+npm install / npm i: Installs all the dependencies listed in your package.json file
+npm install <package-name> / npm i <package-name> =  Installs a specific npm package and adds it to package.json
+npm uninstall <package-name> / npm un <package-name> = Uninstalls a specific npm package
+npm start = Runs the script defined as "start" in your package.json
+node <filename.js> = Executes a specific JavaScript file using the Node.js runtime.
