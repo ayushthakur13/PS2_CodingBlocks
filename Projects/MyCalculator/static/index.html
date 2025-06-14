@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    
+    <div class="container" cellspacing="10px">
+        <h1>My Calculator App</h1>
+        <div class="input">
+            <input type="number" placeholder="Enter first number">
+            <input type="number" placeholder="Enter second number">
+            <button id="btn">Calculate</button>
+        </div>
+        <table class="result">
+            <thead>
+                <th class="row" id="sum">Sum</th>
+                <th class="row" id="mul">Product</th>
+                <th class="row" id="div">Division</th>
+            </thead>
+            <tbody>
+                <td class="sumVal"></td>
+                <td class="productVal"></td>
+                <td class="divValue"></td>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
