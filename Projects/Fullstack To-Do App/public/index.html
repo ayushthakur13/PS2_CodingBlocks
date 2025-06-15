@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List by Ayush</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/list_icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="bgImg"></div>
+    <div class="task">
+        <h1>Things to Do</h1>
+            <form action="/addtodo" method="post">
+                <input type="text" class="newTask" id="newTask" placeholder="Enter a task">
+                <button type="submit" id="addBtn">Add Task</button>
+            </form>
+            <div class="list">
+            
+            </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

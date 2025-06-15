@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    height: 100%;
+}
+
+.bgImg{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://specials-images.forbesimg.com/dam/imageserve/1092571024/960x0.jpg?fit=scale');
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.task{
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 40%;
+    margin: 50px auto;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align: center;
+    margin: 10px 0px 20px 0px;
+    color: #2E2E2E;
+    font-size: 40px;
+}
+
+form{
+    text-align: center;
+}
+
+input{
+    width: 60%;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #F4F1EB;
+    color: #333;
+    border: 1px solid #D8CDB9;
+    border-radius: 8px;
+}
+
+#addBtn{
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    background-color: #C58B7A;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#addBtn:hover{
+    background-color: #B7745E;
+}
+
+
+
+.list{
+    list-style: none;
+    width: 75%;
+    margin: auto;
+}
+
+li{
+    font-size: 25px;
+    border: 2px solid #D8CDB9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #FDFDFD;
+    display: flex;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
+li button{
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+li button:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+}
+
+li:first-child button.upBtn,
+li:last-child button.downBtn{
+    display: none;
+}
+
+
+
+
+/* Responsiveness  */
+
+@media screen and (max-width: 768px) {
+    .task {
+        width: 90%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    #addBtn {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    li {
+        font-size: 20px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    li span.taskName {
+        width: 100%;
+    }
+
+    li button {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    li {
+        font-size: 18px;
+    }
+}
