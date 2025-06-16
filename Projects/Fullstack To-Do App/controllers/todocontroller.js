@@ -1,57 +1,69 @@
-const { v4: uuidv4 } = require('uuid'); 
-// wehenever we'll call uuidv4(), it will give a unique id
+// let todos = [];
 
-let todos = [];
+const Todo = require('../database/script');
 
 module.exports.getGetToDos = (req,res)=>{
-    res.send(todos)
+    Todo.getTodos()
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ error: `Unable to fetch todos: ${err.message}` }); 
+        });
 }
 
 module.exports.postAddToDo = (req,res)=>{
     const {name} = req.body;
-    todos.push({
-        id:uuidv4(),
-        name
-    });
-    res.redirect('/gettodos');
+    Todo.addToDo(name)
+        .then(() => {
+            return Todo.getTodos();
+        })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ error: `Unable to add todo: ${err.message}` });
+        });
 }
 
 module.exports.postDeleteTodo = (req,res)=>{
     const {id} = req.body;
-    todos = todos.filter((task)=>{
-        if(task.id === id) return false;
-        return true;
-    })
-    res.redirect('/gettodos')
+    Todo.deleteTodo(id)
+        .then(()=>{
+            return Todo.getTodos();
+        })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err)=>{
+            res.json({error: `Unable to delete todo: ${err.message}`})
+        })
 }
 
 module.exports.getIncrease = (req,res)=>{
     const {id} = req.query;
-    let index;
-    todos.forEach((e,i)=>{
-        if(e.id == id) index = i;
-    })
-    // swap
-    let temp = todos[index]
-    todos[index] = todos[index-1]
-    todos[index-1] = temp
-
-    // res.send('You asked to increase the priority');
-    res.redirect('/gettodos');
+    Todo.increasePriority(id)
+        .then(()=>{
+            return Todo.getTodos();
+        })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err)=>{
+            res.json({error: `Unable to increase priority: ${err.message}`})
+        })
 }
 
 module.exports.getDecrease = (req,res)=>{
     const {id} = req.query;
-    let index;
-    todos.forEach((e,i)=>{
-        if(e.id == id) index = i;
-    })
-    // swap
-    let temp = todos[index]
-    todos[index] = todos[index+1]
-    todos[index+1] = temp
-
-    // res.send('You asked to decrease the priority');
-    res.redirect('/gettodos');
+    Todo.decreasePriority(id)
+        .then(()=>{
+            return Todo.getTodos();
+        })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err)=>{
+            res.json({error: `Unable to decrease priority: ${err.message}`})
+        })
 }
-
