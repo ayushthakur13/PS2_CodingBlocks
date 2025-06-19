@@ -1,29 +1,27 @@
-// let todos = [];
-
-const Todo = require('../database/script');
+const Todo = require('../models/todo');
 
 module.exports.getGetToDos = (req,res)=>{
     Todo.getTodos()
-        .then((data) => {
-            res.json(data);
+        .then((data)=>{
+            res.send(data);
         })
-        .catch((err) => {
-            res.json({ error: `Unable to fetch todos: ${err.message}` }); 
-        });
+        .catch((err)=>{
+            res.send(err.message);
+        })
 }
 
 module.exports.postAddToDo = (req,res)=>{
     const {name} = req.body;
-    Todo.addToDo(name)
-        .then(() => {
+    Todo.addTodo(name)
+        .then(()=>{
             return Todo.getTodos();
         })
-        .then((data) => {
-            res.json(data);
+        .then((data)=>{
+            res.send(data);
         })
-        .catch((err) => {
-            res.json({ error: `Unable to add todo: ${err.message}` });
-        });
+        .catch((err)=>{
+            res.send(err.message);
+        })
 }
 
 module.exports.postDeleteTodo = (req,res)=>{
@@ -32,38 +30,18 @@ module.exports.postDeleteTodo = (req,res)=>{
         .then(()=>{
             return Todo.getTodos();
         })
-        .then((data) => {
-            res.json(data);
+        .then((data)=>{
+            res.send(data);
         })
         .catch((err)=>{
-            res.json({error: `Unable to delete todo: ${err.message}`})
+            res.send(err.message);
         })
 }
 
 module.exports.getIncrease = (req,res)=>{
-    const {id} = req.query;
-    Todo.increasePriority(id)
-        .then(()=>{
-            return Todo.getTodos();
-        })
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((err)=>{
-            res.json({error: `Unable to increase priority: ${err.message}`})
-        })
+    
 }
 
 module.exports.getDecrease = (req,res)=>{
-    const {id} = req.query;
-    Todo.decreasePriority(id)
-        .then(()=>{
-            return Todo.getTodos();
-        })
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((err)=>{
-            res.json({error: `Unable to decrease priority: ${err.message}`})
-        })
+    
 }
