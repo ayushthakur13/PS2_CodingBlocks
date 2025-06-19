@@ -14,13 +14,13 @@ async function main() {
         _db = client.db(dbName);
     } 
     catch (err) {
-        reject(err);
+        throw err;
     }
 }
 // we can also use promise or normal function instead of this 
 
 function getDB(){
-    if(!_db) return null;
+    if(!_db) throw new Error("DB not initialized");
     return _db;
 }
 

@@ -9,9 +9,9 @@ function addToList(todos){
         li.innerHTML= `
             <span class="taskName">${element.name}</span>
             <span class="buttons">
-                <button class="upBtn" atrId=${element.id}>⬆️</button>
-                <button class="downBtn" atrId=${element.id}>⬇️</button>
-                <button class="delBtn" atrId=${element.id}>❌</button>
+                <button class="upBtn" atrId="${element._id}">⬆️</button> 
+                <button class="downBtn" atrId="${element._id}">⬇️</button> 
+                <button class="delBtn" atrId="${element._id}">❌</button>
             </span>
         `
         list.appendChild(li);
