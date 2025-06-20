@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="heading">Blog Site</h1>
+
+        <form class="blog-form" action="/blogs" method="post">
+            <div class="title-box">
+                <span class="title-text">Title: </span>
+                <input class="title" type="text" name="title" placeholder="Enter title"> 
+            </div>
+            <div class="actor-box">
+                <span class="actor-text">Actor: </span>
+                <input class="actor" type="text" name="actor" placeholder="Enter actor"> 
+            </div>
+            <div class="desc-box">
+                <span class="desc-text">Description: </span>
+                <textarea class="desc" type="text" name="description" placeholder="Enter description"></textarea> 
+            </div>
+            
+            <button class="btn" type="submit">Add Blog</button>
+        </form>
+    </div>
+
+    <ul class="blog-list">
+        {{#each blogs as |b|}}
+            <li class="blog-item">
+                <div class="blog-tile">
+                    <span class="blog-title-heading">Title: </span>
+                    <span class="blog-title-text">{{b.title}}</span>
+                </div>
+                <div class="blog-actor">
+                    <span class="blog-actor-heading">Actor: </span>
+                    <span class="blog-actor-text">{{b.actor}}</span>
+                </div>
+                <div class="blog-desc">
+                    <span class="blog-desc-heading">Description: </span>
+                    <span class="blog-desc-text">{{b.description}}</span>
+                </div>
+
+                <button class="dlt-btn">
+                    <a href="/delete?id={{b._id}}">Delete</a>
+                </button>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

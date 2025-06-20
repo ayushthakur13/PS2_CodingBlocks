@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Game of Thrones",
+        "actor": "Kit Harrington",
+        "description": "Set on a fictional continent of Westeros, this fantasy drama explores the deadly political and family struggles between noble houses."
+    },
+    {
+        "title": "Breaking Bad",
+        "actor": "Bryan Cranston",
+        "description": "A high school chemistry teacher turned meth kingpin. Gritty, raw, and a masterclass in storytelling."
+    },
+    {
+        "title": "Stranger Things",
+        "actor": "Millie Bobby Brown",
+        "description": "A group of kids battle supernatural forces and government secrets in this nostalgic sci-fi thriller."
+    },
+    {
+        "title": "Peaky Blinders",
+        "actor": "Cillian Murphy",
+        "description": "Post-WWI Birmingham gangster drama featuring razor-sharp style and even sharper storytelling."
+    },
+    {
+        "title": "The Mandalorian",
+        "actor": "Pedro Pascal",
+        "description": "A lone bounty hunter in the Star Wars universe protects a mysterious Force-sensitive child known as Grogu."
+    },
+    {
+        "title": "Sherlock",
+        "actor": "Benedict Cumberbatch",
+        "description": "A modern update on Sherlock Holmes solving twisted crimes with razor-sharp intellect and sass."
+    },
+    {
+        "title": "The Witcher",
+        "actor": "Henry Cavill",
+        "description": "Mutant monster-hunter Geralt battles dark magic, politics, and destiny in a fantasy world filled with danger."
+    },
+    {
+        "title": "Dark",
+        "actor": "Louis Hofmann",
+        "description": "A mind-bending German sci-fi series where time travel weaves a chilling and complex narrative."
+    }
+]
