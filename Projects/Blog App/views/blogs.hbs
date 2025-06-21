@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    {{> navbar}}
 
     <div class="header">
         <h1 class="heading">Blog Site</h1>
@@ -47,6 +48,14 @@
 
                 <button class="dlt-btn">
                     <a href="/delete?id={{b._id}}">Delete</a>
+                </button>
+
+                <button class="update-btn">
+                    <a href="/update?id={{b._id}}">Update</a>
+                </button>
+
+                <button class="details-btn">
+                    <a href="/details?id={{b._id}}">Get details</a>
                 </button>
             </li>
         {{/each}}

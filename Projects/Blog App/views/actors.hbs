@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     {{> navbar}}
+
+    <div class="header">
+        <h1 class="heading">Actors - Details</h1>
+
+        <form class="actor-form" action="/actors" method="post">
+            <div class="name-box">
+                <span class="name-text">Name: </span>
+                <input class="name" type="text" name="name" placeholder="Enter name"> 
+            </div>
+            <div class="image-box">
+                <span class="image-text">Image: </span>
+                <input class="image" type="text" name="imageUrl" placeholder="Enter image url"> 
+            </div>
+            <div class="age-box">
+                <span class="age-text">Age: </span>
+                <input class="age" type="text" name="age" placeholder="Enter age"></input> 
+            </div>
+            
+            <button class="btn" type="submit">Add Actor</button>
+        </form>
+    </div>
+
+    <ul class="actor-list">
+        {{#each act as |a|}}
+            <li class="actor-item">
+                <div class="actor-image">
+                    <span class="actor-image-box"><img src="{{a.imageUrl}}" alt="actor-image"></span>
+                </div>
+                <div class="actor-name">
+                    <span class="actor-name-text">{{a.name}}</span>
+                </div>
+                <div class="actor-age">
+                    <span class="actor-age-heading">Age: </span>
+                    <span class="actor-age-text">{{a.age}}</span>
+                </div>
+
+                <button class="dlt-btn">
+                    <a href="/delete/actor?id={{a._id}}">Delete</a>
+                </button>
+
+                <button class="update-btn">
+                    <a href="/update/actor?id={{a._id}}">Update</a>
+                </button>
+            </li>
+        {{/each}}
+    </ul>
+
+</body>
+</html>

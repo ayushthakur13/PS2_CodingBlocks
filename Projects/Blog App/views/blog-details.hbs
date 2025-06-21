@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    {{> navbar}}
+    
+    <div class="header">
+        <h1 class="heading">{{blog.title}}</h1>
+    </div>
+
+    <ul class="blog-list">
+            <li class="blog-item">
+
+                <div class="blog-actor">
+                    <span class="blog-actor-heading">Actor: </span>
+                    <span class="blog-actor-text">{{blog.actor}}</span>
+                </div>
+                <div class="blog-desc">
+                    <span class="blog-desc-heading">Description: </span>
+                    <span class="blog-desc-text">{{blog.description}}</span>
+                </div>
+
+                <button class="dlt-btn">
+                    <a href="/delete?id={{blog._id}}">Delete</a>
+                </button>
+
+                <button class="update-btn">
+                    <a href="/update?id={{blog._id}}">Update</a>
+                </button>
+            </li>
+    </ul>
+</body>
+</html>
