@@ -2,9 +2,10 @@ const Blogs = require('../models/blogs')
 const Actors = require('../models/actors')
 
 module.exports.getBlogs = async (req,res)=>{
-    let blogs = await Blogs.find();
+    let blogs = await Blogs.find().populate('actor');
+    let actors = await Actors.find();
     res.render('blogs',{
-        blogs
+        blogs,actors
     });
 }
 
@@ -24,9 +25,10 @@ module.exports.getDelete = async (req,res)=>{
 
 module.exports.getUpdate = async (req,res)=>{
     const {id} = req.query;
-    const blog = await Blogs.findOne({_id:id});    
+    const blog = await Blogs.findOne({_id:id}).populate('actor');   
+    const actors = await Actors.find(); 
 
-    res.render('update-blog',{blog});
+    res.render('update-blog',{blog,actors});
 }
 
 module.exports.postUpdate = async (req,res)=>{
@@ -43,7 +45,7 @@ module.exports.postUpdate = async (req,res)=>{
 
 module.exports.getDetails = async (req,res)=>{
     const {id} = req.query;
-    const blog = await Blogs.findOne({_id:id});    
+    const blog = await Blogs.findOne({_id:id}).populate('actor');    
 
     res.render('blog-details',{blog});
 }
@@ -67,21 +69,21 @@ module.exports.getDeleteActor = async (req,res)=>{
     res.redirect('/actors');
 }
 
-module.exports.getUpdate = async (req,res)=>{
+module.exports.getUpdateActor = async (req,res)=>{
     const {id} = req.query;
-    const blog = await Blogs.findOne({_id:id});    
+    const actor = await Actors.findOne({_id:id});
 
-    res.render('update-blog',{blog});
+    res.render('update-actor',{actor})
 }
 
-module.exports.postUpdate = async (req,res)=>{
-    const { title, actor, description, id} = req.body;
-    const blog = await Blogs.findOne({_id:id});    
+module.exports.postUpdateActor = async (req,res)=>{
+    const { name, imageUrl, age, id} = req.body;
+    const actor = await Actors.findOne({_id:id});    
 
-    blog.title = title;
-    blog.actor = actor;
-    blog.description = description;
-    await blog.save();
+    actor.name = name;
+    actor.imageUrl = imageUrl;
+    actor.age = age;
+    await actor.save();
 
-    res.redirect('/blogs');
+    res.redirect('/actors');
 }

@@ -19,7 +19,12 @@
             </div>
             <div class="actor-box">
                 <span class="actor-text">Actor: </span>
-                <input value="{{blog.actor}}" class="actor" type="text" name="actor" placeholder="Enter actor"> 
+                <select name="actor" class="actor">
+                    <option value="">Select an actor</option>
+                    {{#each actors as |a|}}
+                        <option value="{{a._id}}">{{a.name}}</option>
+                    {{/each}}
+                </select>
             </div>
             <div class="desc-box">
                 <span class="desc-text">Description: </span>

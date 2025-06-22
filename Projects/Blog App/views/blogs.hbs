@@ -19,7 +19,13 @@
             </div>
             <div class="actor-box">
                 <span class="actor-text">Actor: </span>
-                <input class="actor" type="text" name="actor" placeholder="Enter actor"> 
+                <select name="actor" class="actor">
+                    <option hidden value="">Select an actor</option>
+                    {{#each actors as |a|}}
+                        <option value="{{a._id}}">{{a.name}}</option>
+                    {{/each}}
+                </select>
+                
             </div>
             <div class="desc-box">
                 <span class="desc-text">Description: </span>
@@ -39,7 +45,7 @@
                 </div>
                 <div class="blog-actor">
                     <span class="blog-actor-heading">Actor: </span>
-                    <span class="blog-actor-text">{{b.actor}}</span>
+                    <span class="blog-actor-text">{{b.actor.name}}</span>
                 </div>
                 <div class="blog-desc">
                     <span class="blog-desc-heading">Description: </span>

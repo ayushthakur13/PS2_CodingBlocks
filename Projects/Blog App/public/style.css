@@ -91,6 +91,7 @@ body{
     padding: 5px;
     font-size: 24px;
     border-radius: 5px;
+    color: #717171;
     border: 2px solid #b9b9bf;
 }
 
@@ -158,9 +159,9 @@ body{
 
 .blog-tile,
 .blog-actor,
-.blog-desc 
-.actor-name
-.actor-image
+.blog-desc,
+.actor-name,
+.actor-image,
 .actor-age{
     margin-bottom: 10px;
 }
@@ -175,7 +176,7 @@ body{
 
 .blog-title-heading,
 .blog-actor-heading,
-.blog-desc-heading 
+.blog-desc-heading,
 .actor-age-heading{
     font-weight: bold;
     color: #444;
@@ -187,7 +188,7 @@ body{
 
 .blog-title-text,
 .blog-actor-text,
-.blog-desc-text 
+.blog-desc-text,
 .actor-age-text{
     display: block;
     margin-top: 4px;

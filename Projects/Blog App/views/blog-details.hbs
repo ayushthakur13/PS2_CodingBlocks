@@ -19,9 +19,12 @@
     <ul class="blog-list">
             <li class="blog-item">
 
-                <div class="blog-actor">
+                <div class="blog-actor" style="text-align: center;">
                     <span class="blog-actor-heading">Actor: </span>
-                    <span class="blog-actor-text">{{blog.actor}}</span>
+                    <span class="blog-actor-text">{{blog.actor.name}}</span>
+                    <div class="actor-image">
+                        <span class="actor-image-box"><img src="{{blog.actor.imageUrl}}" alt="actor-image"></span>
+                    </div>
                 </div>
                 <div class="blog-desc">
                     <span class="blog-desc-heading">Description: </span>

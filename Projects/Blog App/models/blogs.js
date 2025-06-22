@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 
 const blogSchema = new Schema({
     title: String,
-    actor: String,
+    actor: { type: Schema.Types.ObjectId, ref: 'Actor'},
     description: String
 })
 
