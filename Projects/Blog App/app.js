@@ -13,7 +13,11 @@ hbs.registerPartials(path.join(__dirname,'views','partials'));
 const routeHandler = require('./routes/blogs-route');
 app.use('/',routeHandler);
 
-mongoose.connect('mongodb://127.0.0.1:27017/myBlogs')
+// Using local database
+// mongoose.connect('mongodb://127.0.0.1:27017/myBlogs')
+
+// using atlas server 
+mongoose.connect('mongodb+srv://ayushthakur:BAWGCsPPiKMIKgqb@blogapp.l2xcwzu.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp')
     .then(()=>{
         app.listen(PORT,()=>{
             console.log(`Server started at http://localhost:${PORT}`);
