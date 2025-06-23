@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 4444;
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 app.set('view engine','hbs');
 app.use(express.urlencoded({extended:true}));
@@ -10,6 +11,7 @@ app.use(session({
     secret: 'randomid',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/expressSessionData'})
 }));
 
 app.get('/',(req,res)=>{
