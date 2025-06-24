@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{username}}'s Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to your profile {{username}}</h1>
-    <h3>Your password is {{password}}</h3>
-    <br>
-
     <div>
-        <button><a href="/logout">Logout</a></button>
+        <h1>Welcome {{username}}</h1>
+
+        <div>
+            <button><a href="/logout">Logout</a></button>
+        </div>
     </div>
 </body>
 </html>

@@ -1,63 +1,51 @@
 const express = require('express');
 const app = express();
 const PORT = 4444;
+const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 app.set('view engine','hbs');
 app.use(express.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(flash());
+
+const mongoUrl = process.env.MONGO_URL;
+const sessionSecret = process.env.SESSION_SECRET;
 
 app.use(session({
-    secret: 'randomid',
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/expressSessionData'})
+    store: MongoStore.create({mongoUrl})
 }));
 
 app.get('/',(req,res)=>{
     res.redirect('/login')
 })
 
-app.get('/signup',(req,res)=>{
-    res.render('signup');
+const signupRoute = require('./routes/signup');
+const loginRoute = require('./routes/login');
+const profileRoute = require('./routes/profile');
 
-})
-
-app.post('/signup',(req,res)=>{
-    const {username, password} = req.body;
-    req.session.username = username;
-    req.session.password = password;
-
-    // console.log(req.session);
-    res.redirect('login');
-})
-
-app.get('/login',(req,res)=>{
-    res.render('login')
-})
-
-app.post('/login',(req,res)=>{
-    const {username, password} = req.body;
-    if(username === req.session.username && password === req.session.password)
-        return res.redirect('/profile');
-    res.send('Login failed');
-})
-
-app.get('/profile',(req,res)=>{
-    if(req.session.username){
-        res.render('profile',{
-            username: req.session.username,
-            password: req.session.password
-        });
-    }
-    else res.redirect('/login');
-})
+app.use('/signup',signupRoute);
+app.use('/login',loginRoute);
+app.use('/profile',profileRoute);
 
 app.get('/logout',(req,res)=>{
     req.session.destroy();
     res.redirect('/');
 })
 
-app.listen(PORT,()=>{
-    console.log(`Server started at http://localhost:${PORT}`);
-})
+mongoose.connect(mongoUrl)
+    .then(()=>{
+        app.listen(PORT,()=>{
+            console.log(`Server started at http://localhost:${PORT}`);
+        })
+    })
+    .catch(()=>{
+
+    })
