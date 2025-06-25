@@ -11,4 +11,27 @@ router.post('/',
         res.redirect('/profile');
     }
 )
+
+router.get('/facebook',
+    myPassport.authenticate('facebook')
+)
+
+router.get('/auth/facebook/callback',
+    myPassport.authenticate('facebook', { failureRedirect: '/login' }),
+    (req,res)=>{
+        res.redirect('/profile');
+    }
+);
+
+router.get('/google',
+    myPassport.authenticate('google', {scope: ['profile']})
+)
+
+router.get('/auth/google/callback',
+    myPassport.authenticate('google', { failureRedirect: '/login' }),
+    (req,res)=>{
+        res.redirect('/profile');
+    }
+);
+
 module.exports = router;

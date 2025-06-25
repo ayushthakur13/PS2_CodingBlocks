@@ -61,6 +61,48 @@ input:focus {
     background-color: #357ab8;
 }
 
+.third-party-login{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 20px;
+    color: #444;
+}
+
+.fb-btn{
+    padding: 8px;
+    border: none;
+    background-color: #0000ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.g-btn{
+    padding: 8px;
+    border: 1px solid blue;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.fb-btn a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.fb-btn:hover{
+    background-color: #0700d2;
+}
+
+.g-btn a{
+    color: blue;
+    text-decoration: none;
+}
+
+.g-btn:hover{
+    background-color: #cad1f4;
+}
 .redirect {
     text-align: center;
     margin-top: 20px;
