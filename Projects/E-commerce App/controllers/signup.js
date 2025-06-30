@@ -18,7 +18,7 @@ module.exports.postSignup = async (req, res, next) => {
         }
 
         const hash = await bcrypt.hash(password, saltRounds);
-        await Users.create({ username, password: hash });
+        await Users.create({ username, password: hash , isAdmin: false});
 
         req.flash('msg', 'Signup successful');
         return res.redirect('/login');

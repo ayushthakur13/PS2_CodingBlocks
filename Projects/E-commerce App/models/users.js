@@ -7,7 +7,8 @@ const userSchema = new Schema({
     fbID: String,
     fbAccesToken: String,
     googleID: String,
-    googleAccessToken: String
+    googleAccessToken: String,
+    isAdmin: Boolean
 })
 
 module.exports = mongoose.model('User', userSchema);

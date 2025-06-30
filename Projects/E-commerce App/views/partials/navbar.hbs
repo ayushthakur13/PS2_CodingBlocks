@@ -4,11 +4,14 @@
     </a>  
 
     <div class="nav-item links">
-        <a href="#">HOME</a>
-        <a href="#">PRODUCTS</a>
+        <a href="/profile">HOME</a>
+        <a href="/shop/products">PRODUCTS</a>
         <a href="#">CART</a>
         <a href="#">PROFILE</a>
-        <a href="/admin/add-product">ADD PRODUCTS</a>
+        {{#if users.isAdmin}}
+            <a href="/admin/add-product">ADD PRODUCTS</a>
+            <a href="/admin/products">ADMIN PRODUCTS</a>
+        {{/if}}
     </div>
 
     <div class="nav-item">

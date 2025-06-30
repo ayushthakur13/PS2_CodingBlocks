@@ -11,7 +11,8 @@ const passport = require('./auth/passport');
 const hbs = require('hbs');
 
 app.set('view engine','hbs');
-hbs.registerPartials(__dirname + '/views/partials');
+app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
@@ -31,6 +32,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+    res.locals.users = req.user;  // this makes users available in all views & partials
+    next();
+});
+
 app.get('/',(req,res)=>{
     res.redirect('/login')
 })
@@ -38,14 +44,17 @@ app.get('/',(req,res)=>{
 const signupRoute = require('./routes/signup');
 const loginRoute = require('./routes/login');
 const profileRoute = require('./routes/profile');
-// const shopRoute = require('./routes/shop');
+const shopRoute = require('./routes/shop');
 const addProductRoute = require('./routes/admin');
+const { isAdmin } = require('./middlewares/admin');
+const { isLoggedIn } = require('./middlewares/isLoggedIn');
 
 app.use('/signup',signupRoute);
 app.use('/login',loginRoute);
+app.use(isLoggedIn);
 app.use('/profile',profileRoute);
-// app.use('/shop',shopRoute);
-app.use('/admin',addProductRoute);
+app.use('/shop',shopRoute);
+app.use('/admin', isAdmin, addProductRoute);
 
 
 app.get('/logout',(req,res,next)=>{

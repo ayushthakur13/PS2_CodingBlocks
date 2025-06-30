@@ -29,8 +29,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 350px;
-    font-size: 18px;
+    padding: 0 50px 0 150px;
+    font-size: 17px;
 }
 
 .nav-item a{
@@ -39,22 +39,31 @@
 }
 
 .nav-item input{
-    width: 200px;
+    width: 250px;
     padding: 8px;
     border-radius: 5px;
     font-size: 15px;
 }
 
 .nav-item button{
-    padding: 5px 10px;
+    padding: 7px 12px;
     border-radius: 5px;
     font-size: 15px;
     margin-right: 30px;
-    background-color: red;
+    background-color: #bb0000;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
+.nav-item button:hover{
+    background-color: #a10101;
+    cursor: pointer;
+}
+
+.nav-item button a{
+    color: white;
+}
 
 .container{
-    /* border: 1px solid black; */
     margin-top: 75px;
 }

@@ -52,7 +52,8 @@ passport.use(new FacebookStrategy({
         user = await User.create({
           username: profile.displayName,
           fbID: profile.id,
-          fbAccesToken: accessToken
+          fbAccesToken: accessToken,
+          isAdmin: false
         });
 
         cb(null, user);
@@ -83,7 +84,8 @@ passport.use(new GoogleStrategy({
         user = await User.create({
           username: profile.displayName,
           googleID: profile.id,
-          googleAccessToken: accessToken
+          googleAccessToken: accessToken,
+          isAdmin: false
         });
 
         cb(null, user);

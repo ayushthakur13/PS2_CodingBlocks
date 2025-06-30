@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{product.name}}</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles/add-product.css">
+    <style>
+        .top-img{
+            height: 200px;
+            width: 200px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    {{>navbar}}
+
+    <div class="product-box">
+        <div class="top-img" style="background-image: url({{product.imageURL}});"></div>
+        <form action="/admin/edit" method="post">
+
+            <div class="item-box">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" placeholder="Enter product name" value="{{product.name}}">
+            </div>
+
+            <div class="item-box">
+                <label for="price">Price: </label>
+                <input type="text" name="price" id="price" placeholder="Enter product price" value="{{product.price}}">
+            </div>
+
+            <div class="item-box">
+                <label for="imageURL">Image URL: </label>
+                <input type="text" name="imageURL" id="imageURL" placeholder="Enter product image URL" value="{{product.imageURL}}">
+            </div>
+
+            <div class="item-box">
+                <label for="desc">Description: </label>
+                <textarea name="desc" id="desc" placeholder="Enter product description">{{product.desc}}
+                </textarea>
+            </div>
+
+            <input type="hidden" name="id" value="{{product._id}}">
+
+            <div class="btn-div">
+                <button type="submit" class="add-btn">Edit Product</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
