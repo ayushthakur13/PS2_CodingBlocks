@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{product.name}}</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles/product-details.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    {{>navbar}}
+
+    <div class="product-box">
+        <div class="product-details">
+
+            <div class="image" style="background-image: url({{product.imageURL}});"></div>
+
+            <div class="info">
+                <h2 class="name">{{product.name}}</h2>
+                <p class="desc">{{product.desc}}</p> <hr>
+                <h3 class="price">₹{{product.price}}</h3>
+
+                <div class="options">
+                    <section class="buttons-section">
+                        <button class="cart-btn"><a href="">Add to Cart</a></button>
+                        <button class="buy-btn"><a href="">Buy now</a></button>
+                    </section>
+
+                    <section class="review-section">
+                        <div class="reviews">
+                            <h3>Reviews:</h3>
+                            <ul class="reviews-list">
+                                {{#each product.reviews as |r|}}
+                                    <li class="review-list-item">
+                                        <h4>{{r.title}}</h4>
+                                        <p>{{r.desc}}</p>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+
+                        <div class="write-review">
+                            <button class="write-review-btn">Write a review</button>
+                            <div class="review-input hide">
+                                <input name="title" type="text" placeholder="Enter title" class="review-name">
+                                <textarea name="desc" placeholder="Start writing" class="review-desc"></textarea>
+                                <input type="hidden" value="{{product._id}}" class="productID">
+                                <button class="submit-review-btn">Post review</button>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/product-details.js"></script>
+</body>
+</html>

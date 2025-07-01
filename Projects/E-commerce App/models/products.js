@@ -21,6 +21,10 @@ const productSchema = new Schema({
     userID: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    reviews:{
+        type: [Schema.Types.ObjectId],
+        ref: 'Review'
     }
 });
 

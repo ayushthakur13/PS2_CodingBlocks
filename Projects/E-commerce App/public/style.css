@@ -20,8 +20,8 @@
 .logo{
     padding-left: 5px;
     margin: 0 0 5px 5px;
-    height: 4rem;
-    width: 12rem;
+    height: 4.5rem;
+    width: 10rem;
 }
 
 .links{
@@ -29,8 +29,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px 0 150px;
-    font-size: 17px;
+    padding: 0 50px 0 110px;
+    font-size: 18px;
 }
 
 .nav-item a{

@@ -74,7 +74,7 @@ module.exports.postEdit = async (req,res,next)=>{
 
 module.exports.getDetails = (req,res)=>{
     try{
-        res.render('admin/add-product')
+        res.render('admin/products')
     }
     catch(e){
         next(e);

@@ -1,10 +1,9 @@
 .product-box{
     /* border: 2px solid black;
     border-radius: 10px; */
-    margin: 100px;
+    margin: 100px 250px;
     display: flex;
     flex-wrap: wrap;
-    /* padding: 10px 20px; */
 }
 
 .product-details{
@@ -12,79 +11,39 @@
     border-radius: 10px;
     width: 100%;
     margin: 15px;
-    display: flex;
     padding: 20px 30px;
 }
 
+.product-details a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
 .image{
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     background-repeat: no-repeat;
     background-size: contain;
     /* border: 1px solid green; */
-    margin-right: 30px;
+    margin-right: 50px;
 }
 
 .info{
-    width: 60%;
+    width: 90%;
     /* border: 1px solid green; */
 }
 
 .name{
-    font-size: 25px;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
 
+.price{
+    font-size: 20px;
+}
 
 .desc{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-.buttons{
-    /* border: 1px solid green; */
-    display: flex;
-    justify-content: center; 
-    gap: 15px;
-    flex-direction: column;
-    padding: 10px;
-    margin-left: 100px;
-}
-
-button{
-    padding: 8px 12px;
-    font-size: 18px;
-    border: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-button a{
-    text-decoration: none;
-    color: white;
-}
-
-.edit-btn{
-    background-color: #5a5a5a;
-}
-
-.edit-btn:hover{
-    cursor: pointer;
-    background-color: #323232;
-}
-
-.details-btn{
-    background-color: #0029df;
-}
-
-.details-btn:hover{
-    cursor: pointer;
-    background-color: #000da0;
-}
-
-.delete-btn{
-    background-color: #bb0000;
-}
-
-.delete-btn:hover{
-    cursor: pointer;
-    background-color: #970000;
-}
