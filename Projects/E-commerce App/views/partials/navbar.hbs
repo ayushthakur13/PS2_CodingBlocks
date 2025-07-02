@@ -6,7 +6,9 @@
     <div class="nav-item links">
         <a href="/profile">HOME</a>
         <a href="/shop/products">PRODUCTS</a>
-        <a href="#">CART</a>
+        <a href="/shop/cart">
+            CART <span class="cart-count">{{cartCount}}</span>
+        </a>
         <a href="#">PROFILE</a>
         {{#if users.isAdmin}}
             <a href="/admin/add-product">ADD PRODUCTS</a>

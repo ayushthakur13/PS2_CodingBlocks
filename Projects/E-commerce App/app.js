@@ -37,6 +37,9 @@ app.use((req, res, next) => {
     next();
 });
 
+const cartCountMiddleware = require('./middlewares/cartCount');
+app.use(cartCountMiddleware);
+
 app.get('/',(req,res)=>{
     res.redirect('/login')
 })

@@ -38,6 +38,19 @@
     color: black;
 }
 
+.cart-count {
+    background-color: #3b48ff; 
+    color: white;                
+    border-radius: 50%;         
+    padding: 2px 8px;           
+    font-size: 14px;           
+    margin-left: 5px;           
+    font-weight: bold;
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+
 .nav-item input{
     width: 250px;
     padding: 8px;
