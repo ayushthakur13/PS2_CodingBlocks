@@ -1,4 +1,5 @@
 const Products = require('../../models/products');
+const Review = require('../../models/reviews');
 
 module.exports.getAddProduct = (req,res)=>{
     res.render('admin/add-product')
@@ -89,6 +90,24 @@ module.exports.getDelete = async (req,res)=>{
             _id: id
         });
         res.redirect('/admin/products');
+    }
+    catch(e){
+        next(e);
+    }
+}
+
+module.exports.getDeleteReview = async (req,res,next)=>{
+    const {id, productId} = req.query;
+    try{
+        await Review.deleteOne({_id: id});
+
+        let product = await Products.findOne({_id:productId});
+
+        product.reviews.pull({_id:id});
+        await product.save();
+        // console.log(product);
+        
+        res.redirect(`/shop/details?id=${productId}`);
     }
     catch(e){
         next(e);

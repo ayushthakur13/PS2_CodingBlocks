@@ -21,6 +21,9 @@ const writeReviewBtn = document.querySelector('.write-review-btn');
                     <li class="review-list-item">
                         <h4>${element.title}</h4>
                         <p>${element.desc}</p>
+                        <button class="dlt-review-btn">
+                            <a href="/admin/deletereview?id=${element._id}&productId=${productID.value}">Delete</a>
+                        </button>
                     </li>
                 `;
                 reviewsList.append(li);

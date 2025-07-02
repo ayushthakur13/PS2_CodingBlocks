@@ -114,25 +114,52 @@ button a{
     padding: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
+    background-color: #f0f4fc;
     border-radius: 6px;
     transition: background-color 0.2s ease;
+    position: relative;
 }
 
 .review-list-item:hover {
-    background-color: #f0f4fc;
+    background-color: #f9f9f9;
 }
 
 .review-list-item h4 {
     margin: 0;
     font-size: 17px;
     color: #2c3e50;
+    width: 80%;
 }
 
 .review-list-item p {
     margin: 5px 0 0 0;
     font-size: 15px;
     color: #444;
+    line-height: 1.4;
+    width: 80%;
+}
+
+.dlt-review-btn{
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 5px 8px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    background-color: #eb3535;
+    color: white;
+    transition: background-color 0.2s ease;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dlt-review-btn:hover{
+    background-color: #df2c2c;
+    cursor: pointer;
+}
+
+.dlt-review-btn a{
+    color: white;
 }
 
 .write-review{

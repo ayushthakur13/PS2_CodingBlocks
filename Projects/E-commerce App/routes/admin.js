@@ -9,5 +9,6 @@ router.get('/edit',adminController.getEdit);
 router.post('/edit',adminController.postEdit);
 router.get('/details',adminController.getDetails);
 router.get('/delete',adminController.getDelete);
+router.get('/deletereview',adminController.getDeleteReview);
 
 module.exports = router;
